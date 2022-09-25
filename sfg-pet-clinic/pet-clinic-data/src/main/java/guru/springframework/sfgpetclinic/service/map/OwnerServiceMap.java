@@ -8,6 +8,11 @@ import guru.springframework.sfgpetclinic.service.OwnerService;
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService{
 
 	@Override
+	public Owner findByLastName(String lastName) {
+		return this.findAll().stream().filter(p -> p.getLastName().equals(lastName)).findFirst().orElse(null);
+	}
+
+	@Override
 	public Owner save(Owner object) {
 		return super.save(object.getId(), object);
 	}

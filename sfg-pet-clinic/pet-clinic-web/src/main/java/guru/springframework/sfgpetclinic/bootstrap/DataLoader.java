@@ -11,14 +11,26 @@ public class DataLoader implements CommandLineRunner{
 	
 	private final OwnerService ownerService;
 	private final VetService vetService;
-	
-	public DataLoader(OwnerService ownerService,VetService vetService){
+	private final PetTypeService petTypeService;
+	public DataLoader(OwnerService ownerService,VetService vetService,PetTypeService petTypeService){
 		this.ownerService=ownerService;
 		this.vetService=vetService;
+		this.petTypeService=petTypeService;
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		PetType Dog= new PetType();
+		Dog.setName("Dog");
+		PetType savedDogPetType=petTypeService.save(Dog);
+		
+		PetType Cat= new PetType();
+		Cat.setName("Cat");
+		PetType savedCatPetType=petTypeService.save(Dog);
+		
+		System.out.println("Loaded Pet Types...");
+		
 		Owner owner1=new Owner();
 		owner1.setFirstName("Bruria");
 		owner1.setLastName("Tau");

@@ -1,5 +1,7 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
+import java.time.LocalDate;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import guru.springframework.sfgpetclinic.model.*;
@@ -34,12 +36,32 @@ public class DataLoader implements CommandLineRunner{
 		Owner owner1=new Owner();
 		owner1.setFirstName("Bruria");
 		owner1.setLastName("Tau");
-
+		owner1.setAddress("1 Ravinia Dr NE");
+		owner1.setCity("Atlanta");
+		owner1.setTelephone("+1 678-690-3359");
+		
+		Pet bruiaPet=new Pet();	
+		bruiaPet.setName("bruno");
+		bruiaPet.setOwner(owner1);
+		bruiaPet.setBirthDate(LocalDate.now());
+		bruiaPet.setPetType(Dog);
+		owner1.getPets().add(bruiaPet);
+		
 		ownerService.save(owner1);
 		
 		Owner owner2=new Owner();
 		owner2.setFirstName("Ranjan");
 		owner2.setLastName("Kale");
+		owner2.setAddress("3625 132nd Avenue Southeast Bellevue");
+		owner2.setCity("Washington ");
+		owner2.setTelephone("+1 678-690-4459");
+		
+		Pet ranjanPet=new Pet();	
+		ranjanPet.setName("caleb");
+		ranjanPet.setOwner(owner2);
+		ranjanPet.setBirthDate(LocalDate.now());
+		ranjanPet.setPetType(Cat);
+		owner2.getPets().add(ranjanPet);
 		
 		ownerService.save(owner2);
 		

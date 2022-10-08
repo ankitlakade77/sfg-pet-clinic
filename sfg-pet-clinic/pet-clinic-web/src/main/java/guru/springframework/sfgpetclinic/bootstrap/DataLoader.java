@@ -14,10 +14,13 @@ public class DataLoader implements CommandLineRunner{
 	private final OwnerService ownerService;
 	private final VetService vetService;
 	private final PetTypeService petTypeService;
-	public DataLoader(OwnerService ownerService,VetService vetService,PetTypeService petTypeService){
+	private final SpecialityService specialityService;
+	
+	public DataLoader(OwnerService ownerService,VetService vetService,PetTypeService petTypeService, SpecialityService specialityService){
 		this.ownerService=ownerService;
 		this.vetService=vetService;
 		this.petTypeService=petTypeService;
+		this.specialityService=specialityService;
 	}
 
 	@Override
@@ -25,11 +28,9 @@ public class DataLoader implements CommandLineRunner{
 		
 		PetType Dog= new PetType();
 		Dog.setName("Dog");
-		PetType savedDogPetType=petTypeService.save(Dog);
 		
 		PetType Cat= new PetType();
 		Cat.setName("Cat");
-		PetType savedCatPetType=petTypeService.save(Dog);
 		
 		System.out.println("Loaded Pet Types...");
 		
@@ -67,21 +68,29 @@ public class DataLoader implements CommandLineRunner{
 		
 		System.out.println("Loaded Owners...");
 		
-		Speciality sp1=new Speciality();
-		sp1.setDescription("Cat Specialist");
+		Speciality radiology=new Speciality();
+		radiology.setDescription("Radiology");
 		
-		Speciality sp2=new Speciality();
-		sp2.setDescription("Dog Specialist");
+		Speciality surgery=new Speciality();
+		surgery.setDescription("Surgery");
+		
+		Speciality dentistry=new Speciality();
+		dentistry.setDescription("dentistry");
+		
+		Speciality savedRadiology = specialityService.save(radiology);
+		Speciality savedSurgery = specialityService.save(surgery);
+		Speciality savedDentistry = specialityService.save(dentistry);
 		
 		Vet vet1=new Vet();
 		vet1.setFirstName("Coby");
 		vet1.setLastName("Rhodes");
-		
+		vet1.getSpecialities().add(savedDentistry);
 		vetService.save(vet1);
 		
 		Vet vet2=new Vet();
 		vet2.setFirstName("Kaleb");
 		vet2.setLastName("Jeff");
+		vet2.getSpecialities().add(savedSurgery);
 		
 		vetService.save(vet2);
 		

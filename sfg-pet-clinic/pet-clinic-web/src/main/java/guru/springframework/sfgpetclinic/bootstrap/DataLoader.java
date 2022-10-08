@@ -67,6 +67,12 @@ public class DataLoader implements CommandLineRunner{
 		
 		System.out.println("Loaded Owners...");
 		
+		Speciality sp1=new Speciality();
+		sp1.setDescription("Cat Specialist");
+		
+		Speciality sp2=new Speciality();
+		sp2.setDescription("Dog Specialist");
+		
 		Vet vet1=new Vet();
 		vet1.setFirstName("Coby");
 		vet1.setLastName("Rhodes");

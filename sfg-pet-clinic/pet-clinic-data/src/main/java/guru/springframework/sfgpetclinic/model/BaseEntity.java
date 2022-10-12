@@ -3,7 +3,7 @@ package guru.springframework.sfgpetclinic.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-@Entity
+@MappedSuperclass
 public class BaseEntity implements Serializable{
 
 	@Id

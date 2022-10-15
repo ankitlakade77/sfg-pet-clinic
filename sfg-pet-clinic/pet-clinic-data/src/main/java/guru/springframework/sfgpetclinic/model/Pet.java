@@ -10,7 +10,7 @@ import java.util.Set;
 public class Pet extends BaseEntity{
 
 	@ManyToOne
-	@JoinTable(name = "pet_types_id")
+	@JoinColumn(name = "types_id")
 	private PetType PetType;
 	
 	@ManyToOne

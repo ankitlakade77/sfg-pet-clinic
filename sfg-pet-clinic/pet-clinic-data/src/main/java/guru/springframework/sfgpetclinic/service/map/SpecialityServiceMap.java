@@ -8,7 +8,7 @@ import guru.springframework.sfgpetclinic.model.Speciality;
 import guru.springframework.sfgpetclinic.service.SpecialityService;
 
 @Service
-public class SpecialityServiceMap extends AbstractMapService<Speciality, Long> implements SpecialityService{
+public class SpecialityServiceMap extends AbstractServiceMap<Speciality, Long> implements SpecialityService{
 
 	@Override
 	public Speciality findById(Long id) {

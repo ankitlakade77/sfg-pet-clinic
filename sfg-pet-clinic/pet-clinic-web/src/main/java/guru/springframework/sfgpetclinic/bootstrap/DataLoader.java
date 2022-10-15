@@ -57,7 +57,7 @@ public class DataLoader implements CommandLineRunner {
 		bruiaPet.setBirthDate(LocalDate.now());
 		bruiaPet.setPetType(Dog);
 		owner1.getPets().add(bruiaPet);
-
+		
 		ownerService.save(owner1);
 
 		Owner owner2 = new Owner();

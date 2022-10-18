@@ -32,13 +32,17 @@
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 
 	<scm>
 		<developerConnection> scm:git:git@github.com:ankitlakade9763/sfg-pet-clinic.git </developerConnection>
-	  <tag>sfg-pet-clinic-0.0.1</tag>
-  </scm>
+		<tag>sfg-pet-clinic-0.0.1</tag>
+	</scm>
 
 	<modules>
 		<module>pet-clinic-data</module>

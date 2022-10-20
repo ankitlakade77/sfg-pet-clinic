@@ -45,6 +45,7 @@ class OwnerServiceMapTest {
 
 	@Test
 	void testFindAll() {
+		
 		assertEquals(ownerServiceMap.findAll().size(),1);
 	}
 

@@ -6,7 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import guru.springframework.sfgpetclinic.model.*;
 import guru.springframework.sfgpetclinic.service.*;
-import guru.springframework.sfgpetclinic.service.map.*;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -94,7 +93,7 @@ public class DataLoader implements CommandLineRunner {
 		Speciality dentistry = new Speciality();
 		dentistry.setDescription("dentistry");
 
-		Speciality savedRadiology = specialityService.save(radiology);
+		//Speciality savedRadiology = specialityService.save(radiology);
 		Speciality savedSurgery = specialityService.save(surgery);
 		Speciality savedDentistry = specialityService.save(dentistry);
 

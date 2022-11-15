@@ -18,4 +18,8 @@ public class BaseEntity implements Serializable{
 		Id = id;
 	}
 	
+	public Boolean isNew() {
+		return this.Id==null;
+	}
+	
 }

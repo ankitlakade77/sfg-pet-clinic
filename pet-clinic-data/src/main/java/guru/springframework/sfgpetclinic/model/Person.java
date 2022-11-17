@@ -5,6 +5,15 @@ import javax.persistence.*;
 @MappedSuperclass
 public class Person extends BaseEntity{
 	
+	public Person(Long Id, String firstName, String lastName) {
+		super(Id);
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+	
+	public Person() {
+	}
+	
 	@Column(name = "first_name")
 	private String firstName;
 	

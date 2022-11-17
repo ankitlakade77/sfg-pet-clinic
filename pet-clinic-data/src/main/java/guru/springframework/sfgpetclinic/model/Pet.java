@@ -8,7 +8,19 @@ import java.util.Set;
 @Entity
 @Table(name="Pets")
 public class Pet extends BaseEntity{
-
+	
+	public Pet(Long id,PetType petType, Owner owner, LocalDate birthDate, String name,
+			Set<Visit> visits) {
+		super(id);
+		PetType = petType;
+		this.owner = owner;
+		this.birthDate = birthDate;
+		this.name = name;
+		this.visits = visits;
+	}
+	
+	public Pet() {}
+	
 	@ManyToOne
 	@JoinColumn(name = "types_id")
 	private PetType PetType;

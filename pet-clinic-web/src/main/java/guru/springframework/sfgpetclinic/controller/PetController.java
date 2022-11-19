@@ -70,9 +70,11 @@ public class PetController {
         }
         owner.getPets().add(pet);
         if (result.hasErrors()) {
+        	pet.setOwner(owner);
             model.put("pet", pet);
             return "pets/createOrUpdatePetForm";
         } else {
+        	pet.setOwner(owner);
             petService.save(pet);
 
             return "redirect:/owners/" + owner.getId();
@@ -86,7 +88,7 @@ public class PetController {
     }
 
     @PostMapping("/pets/{petId}/edit")
-    public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, Model model) {
+    public String processUpdateForm(@Valid Pet pet, Owner owner, BindingResult result, Model model) {
         if (result.hasErrors()) {
             pet.setOwner(owner);
             model.addAttribute("pet", pet);

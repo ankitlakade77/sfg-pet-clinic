@@ -3,6 +3,9 @@ package guru.springframework.sfgpetclinic.model;
 import java.time.LocalDate;
 import java.util.HashSet;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Set;
 
 @Entity
@@ -30,6 +33,7 @@ public class Pet extends BaseEntity{
 	private Owner owner;
 	
 	@Column(name = "birth_date")
+	@DateTimeFormat(pattern="yyyy-MM-DD")
 	private LocalDate birthDate;
 	
 	@Column(name = "name")

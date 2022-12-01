@@ -28,6 +28,7 @@ jobs:
       - run:
           name: Test
           command: mvn install 
+    
       # codeconv 
       - run:
           name: upload
@@ -39,6 +40,3 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
-  upload-to-codecov:
-    jobs:
-      - codecov/upload

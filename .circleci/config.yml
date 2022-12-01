@@ -32,7 +32,7 @@ jobs:
       # codeconv 
       - run:
           name: upload
-          command: curl -Os https://uploader.codecov.io/latest/alpine/codecov chmod +x codecov ./codecov -t ${CODECOV_TOKEN}
+          command: curl -Os https://uploader.codecov.io/latest/linux/codecov chmod +x codecov ./codecov -t ${CODECOV_TOKEN}
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:

@@ -28,6 +28,7 @@ jobs:
       - run:
           name: Test
           command: mvn install 
+      # codeconv setup
       - run:
           name: upload
           command: curl -Os https://uploader.codecov.io/latest/alpine/codecov chmod +x codecov ./codecov

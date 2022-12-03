@@ -28,11 +28,15 @@ jobs:
       - run:
           name: Test
           command: mvn install 
+          
+      - run: mvn integration-test cobertura:cobertura
     
+      - store_test_results:
+          path: target/surefire-reports
       # codeconv 
       - run:
-          name: upload
-          command: bash <(curl -Os https://uploader.codecov.io/latest/linux/codecov chmod +x codecov ./codecov -t ${CODECOV_TOKEN})
+          name: Send to CodeCov
+          command: bash <(curl -s https://codecov.io/bash)
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:

@@ -3,11 +3,14 @@ package guru.springframework.sfgpetclinic.model;
 import java.time.LocalDate;
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="visits")
 public class Visit extends BaseEntity {
 	
 	@Column(name="date")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate date;
 	
 	@ManyToOne

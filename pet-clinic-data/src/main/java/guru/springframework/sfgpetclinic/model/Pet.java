@@ -3,12 +3,27 @@ package guru.springframework.sfgpetclinic.model;
 import java.time.LocalDate;
 import java.util.HashSet;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Set;
 
 @Entity
 @Table(name="Pets")
 public class Pet extends BaseEntity{
-
+	
+	public Pet(Long id,PetType petType, Owner owner, LocalDate birthDate, String name,
+			Set<Visit> visits) {
+		super(id);
+		PetType = petType;
+		this.owner = owner;
+		this.birthDate = birthDate;
+		this.name = name;
+		this.visits = visits;
+	}
+	
+	public Pet() {}
+	
 	@ManyToOne
 	@JoinColumn(name = "types_id")
 	private PetType PetType;
@@ -18,6 +33,7 @@ public class Pet extends BaseEntity{
 	private Owner owner;
 	
 	@Column(name = "birth_date")
+	@DateTimeFormat(pattern="yyyy-MM-DD")
 	private LocalDate birthDate;
 	
 	@Column(name = "name")
